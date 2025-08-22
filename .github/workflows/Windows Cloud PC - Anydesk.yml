@@ -15,8 +15,10 @@ jobs:
           Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/7eiczvgil84czu55dxep3/Downloads.bat?rlkey=wzdc1wxjsph2b7r0atplmdz3p&dl=1" -OutFile "Downloads.bat"
           cmd /c Downloads.bat
 
-      - name: Log In To AnyDesk
-        run: cmd /c start.bat
+       ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
 
       - name: Time Counter
         run: Start-Sleep -Seconds 10000000000000000000000000000000000000000000000000000000000000000000000000000
